@@ -7,40 +7,43 @@ import android.graphics.Paint;
 import android.view.View;
 
 public class MyView extends View {
+    boolean started;
+    Paint paint = new Paint();
+    int N = 10; // количество шариков
+    float[] x = new float[N];
+    float[] y = new float[N];
+    float[] vx = new float[N];
+    float[] vy = new float[N];
 
     public MyView(Context context) {
         super(context);
+        if (!started) {
+
+            for (int i = 0; i < N; i++) {
+                x[i] = (float) (Math.random() * 500);
+                y[i] = (float) (Math.random() * 500);
+                vx[i] = (float) (Math.random() * 6 - 3);
+                vy[i] = (float) (Math.random() * 6 - 3);
+            }
+        }
+    }
+        @Override
+        protected void onDraw (Canvas canvas){
+
+                paint.setColor(Color.BLACK);
+
+                for (int i = 0; i < N; i++) {
+                    canvas.drawCircle(x[i], y[i], 20, paint);
+                }
+                // готовим массивы x и у для следущего кадра
+                for (int i = 0; i < N; i++) {
+                    x[i] += vx[i];
+                    y[i] += vy[i];
+                }
+                //запрашиваем перерисовку
+                started = true;
+            invalidate();
+        }
     }
 
-    @Override
-
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        Paint paint = new Paint();
-        paint.setColor(Color.BLUE);
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(20);
-        canvas.drawCircle(300, 300, 200, paint);
-
-        Paint paint1 = new Paint();
-        paint1.setColor(Color.RED);
-        paint1.setStyle(Paint.Style.STROKE);
-        paint1.setStrokeWidth(20);
-        canvas.drawCircle(500, 500, 180, paint1);
-
-        Paint paint2 = new Paint();
-        paint2.setColor(Color.BLACK);
-        paint2.setStyle(Paint.Style.STROKE);
-        paint2.setStrokeWidth(20);
-        canvas.drawCircle(700, 700, 160, paint2);
-
-        Paint paint3 = new Paint();
-        paint3.setColor(Color.BLACK);
-        paint3.setStyle(Paint.Style.STROKE);
-        paint3.setStrokeWidth(20);
-        canvas.drawCircle(900, 900, 140, paint3);
-
-
-    }
-}
 
