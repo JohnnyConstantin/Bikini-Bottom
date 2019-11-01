@@ -1,7 +1,10 @@
 package com.example.a177;
 
 import android.content.Context;
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 

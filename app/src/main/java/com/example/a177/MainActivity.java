@@ -1,7 +1,10 @@
 package com.example.a177;
 
 import androidx.appcompat.app.AppCompatActivity;
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
