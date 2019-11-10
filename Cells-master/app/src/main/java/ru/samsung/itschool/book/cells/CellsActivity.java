@@ -78,7 +78,7 @@ public class CellsActivity extends Activity implements OnClickListener,
     }
 
     private void check(int i, int j){
-        if(i < 0 || i >= HEIGHT || j < 0 || j >= WIDTH || Drawn[i][j] == 1 || Bomb[i][j] ==1) {
+        if(i < 0 || i >= HEIGHT || j < 0 || j >= WIDTH || Drawn[i][j] == 1 || Bomb[i][j] == 1 || flag[i][j] == 1) {
             return;
         }
         cells[i][j].setBackgroundColor(Color.WHITE);
@@ -123,10 +123,10 @@ public class CellsActivity extends Activity implements OnClickListener,
             cells[tappedY][tappedX].setBackgroundColor(Color.WHITE);
             Drawn[tappedY][tappedX] = 1;
             int Bomb_Count = 0;
-            for(int i = tappedY - 1; i <= tappedY; i ++){
-                for(int j = tappedX - 1; j <= tappedX; j++){
-                    if(i >= 0 && i < HEIGHT && j >= 0 && j < WIDTH){
-                        Bomb_Count += Bomb[i][j];
+            for(int i = tappedY - 1; i <= tappedY + 1; i ++){
+                for(int j = tappedX - 1; j <= tappedX + 1; j++){
+                    if(i >= 0 && i < HEIGHT && j >= 0 && j < WIDTH ){
+                        Bomb_Count +=  Bomb[i][j];
                     }
                 }
             }
@@ -139,6 +139,7 @@ public class CellsActivity extends Activity implements OnClickListener,
                 check(tappedY + 1, tappedX -1 );
                 check(tappedY + 1, tappedX);
                 check(tappedY + 1, tappedX + 1);
+
             } else {
                 cells[tappedY][tappedX].setText(Bomb_Count + "");
             }
