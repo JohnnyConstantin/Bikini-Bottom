@@ -14,8 +14,8 @@
             android:id="@+id/CellsLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#0FADCC00"
-            android:padding="2dp"></GridLayout>
+            android:background="#D73F53B5"
+            android:padding="1dp"></GridLayout>
     </HorizontalScrollView>
 
 </ScrollView>

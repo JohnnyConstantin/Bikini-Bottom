@@ -18,12 +18,14 @@ import java.util.Arrays;
 
 import task.Task;
 
+import static task.Task.showMessage;
+
 
 public class CellsActivity extends Activity implements OnClickListener,
         OnLongClickListener {
 
-     int WIDTH = 9;
-     int HEIGHT = 14;
+     int WIDTH = 11;
+     int HEIGHT = 17;
 
      Button[][] cells;
      int[][] Bomb = new int[HEIGHT][WIDTH];
@@ -40,13 +42,14 @@ public class CellsActivity extends Activity implements OnClickListener,
     }
 
     void generate() {
+        showMessage(this, "Игра началась! Не наткнитесь на акул!");
         for (int i = 0; i < HEIGHT; i++)
             for (int j = 0; j < WIDTH; j++) {
                 Bomb[i][j] = 0;
                 Drawn[i][j] = 0;
                 flag[i][j] = 0;
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    cells[i][j].setBackgroundColor(Color.argb(0.0f, 58.82f, 29.41f, 0.0f));
+                    cells[i][j].setBackgroundColor(Color.argb(84, 63, 84, 181));
                 } else {
                     cells[i][j].setBackgroundColor(Color.BLACK);
                 }
@@ -65,13 +68,14 @@ public class CellsActivity extends Activity implements OnClickListener,
         int tappedX = getX(tappedCell);
         int tappedY = getY(tappedCell);
 
-        cells[tappedY][tappedX].setBackgroundResource(R.drawable.set_flag);
+        cells[tappedY][tappedX].setBackgroundResource(R.drawable.shark);
         flag[tappedY][tappedX] = 1;
 
         Object[][] arr1 = {flag};
         Object[][] arr2 = {Bomb};
         if (Arrays.deepEquals(arr1, arr2)){
-            Task.showMessage(this, "U won");
+            showMessage(this, "Вы выжили!");
+
             generate();
         }
         return true;
@@ -81,7 +85,7 @@ public class CellsActivity extends Activity implements OnClickListener,
         if(i < 0 || i >= HEIGHT || j < 0 || j >= WIDTH || Drawn[i][j] == 1 || Bomb[i][j] == 1 || flag[i][j] == 1) {
             return;
         }
-        cells[i][j].setBackgroundColor(Color.WHITE);
+        cells[i][j].setBackgroundColor(Color.argb(200, 255, 235, 39));
         Drawn[i][j] = 1;
         flag[i][j] = 0;
         int Bomb_Count = 0;
@@ -93,6 +97,7 @@ public class CellsActivity extends Activity implements OnClickListener,
             }
         }
         if (Bomb_Count == 0){
+            cells[i][j].setBackgroundColor(Color.argb(200, 32, 94, 2));
             check(i - 1, j - 1);
             check(i - 1, j );
             check(i - 1, j + 1);
@@ -116,11 +121,11 @@ public class CellsActivity extends Activity implements OnClickListener,
         int tappedY = getY(tappedCell);
         flag[tappedY][tappedX] = 0;
         if(Bomb[tappedY][tappedX] == 1){
-            Task.showMessage(this, "U blowed up");
+            showMessage(this, "Упс, Вас съела акула");
             makeCells();
             generate();
         } else {
-            cells[tappedY][tappedX].setBackgroundColor(Color.WHITE);
+            cells[tappedY][tappedX].setBackgroundColor(Color.argb(200, 255, 235, 39));
             Drawn[tappedY][tappedX] = 1;
             int Bomb_Count = 0;
             for(int i = tappedY - 1; i <= tappedY + 1; i ++){
