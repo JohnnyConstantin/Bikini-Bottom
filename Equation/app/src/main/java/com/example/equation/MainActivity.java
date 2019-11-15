@@ -29,11 +29,12 @@ public class MainActivity extends Activity {
             if (Math.sqrt(Math.pow(b, 2) - 4 * a * c) < 0) {
                 TextView result = (TextView) findViewById(R.id.result);
                 result.setText("Корней нет");
-            } else if(a ==0, b ==0, c==0) {
-
-            } else if {
+            } else if((a ==0 & b ==0 & c==0) || (a==0 & c ==0) || (b==0 & c==0)) {
                 TextView result = (TextView) findViewById(R.id.result);
-                result.setText("" + String.valueOf((-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / 2 * a) + String.valueOf((-b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / 2 * a))
+                result.setText("Уравнение имеет единственное решение: x = 0");
+            } else {
+                TextView result = (TextView) findViewById(R.id.result);
+                result.setText("" + String.valueOf((-b + Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / 2 * a) + " " +  String.valueOf((-b - Math.sqrt(Math.pow(b, 2) - 4 * a * c)) / 2 * a));
             }
         }
     }
