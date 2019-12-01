@@ -1,0 +1,23 @@
+<resources>
+    <string name="result"> </string>
+    <string name="app_name">journal</string>
+    <string name="title">Authorization</string>
+    <string name="login">login</string>
+    <string name="password">password</string>
+    <string name="enter"> enter </string>
+    <string name="Расписание">Расписание уроков</string>
+    <string name="Physics">Физика</string>
+    <string name="Russian">Русский</string>
+    <string name="English">Английский язык</string>
+    <string name="Computerscience">Информатика</string>
+    <string name="Math">Алгебра</string>
+    <string name="Biology">Биология</string>
+    <string name="Geometry">Геометрия</string>
+    <string name="Empty"> </string>
+    <string name="Monday">Понедельник</string>
+    <string name="Tuesday">Вторник</string>
+    <string name="Wednesday">Среда</string>
+    <string name="Thursday">Четверг</string>
+    <string name="Friday">Пятница</string>
+    <string name="Saturday">Суббота</string>
+</resources>
