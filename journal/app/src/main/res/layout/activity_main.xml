@@ -1,43 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/start2"
     android:orientation="vertical"
-    tools:context="com.example.journal.MainActivity"
-    android:layout_gravity="center_horizontal">
+    tools:context="com.example.journal.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="167dp">
+        android:layout_height="155dp">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="153dp"
-            android:layout_height="131dp"
-            android:layout_marginStart="129dp"
-            android:layout_marginLeft="129dp"
+            android:layout_width="210dp"
+            android:layout_height="151dp"
             android:layout_marginTop="38dp"
-            android:layout_marginEnd="129dp"
-            android:layout_marginRight="129dp"
-            android:background="#FAFAFA"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.52"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/icon" />
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@mipmap/icon" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/Title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="46dp"
+        android:background="#00472918"
         android:text="@string/title"
-        android:textColor="#FD161111"
-        android:textSize="30sp" />
+        android:textAllCaps="true"
+        android:textColor="#FDFFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        app:fontFamily="sans-serif-light" />
 
     <TextView
         android:id="@+id/result"
@@ -48,7 +50,7 @@
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="16dp"
         android:background="#00FFFFFF" />
 
     <EditText
@@ -58,17 +60,23 @@
         android:hint="@string/login"
         android:inputType="textMultiLine" />
 
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="#00FFFFFF" />
+
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="47dp"
         android:hint="@string/password"
         android:inputType="textWebPassword" />
 
     <View
         android:id="@+id/divider3"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="26dp"
         android:background="#00FFFFFF" />
 
     <Button

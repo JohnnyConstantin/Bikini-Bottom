@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent i;
                 if (v.getId() == R.id.button) {
-                    if ((password.getText().toString()).equals("toor") && ((name.getText().toString()).equals("john"))){
+                    if ((password.getText().toString()).equals("1234") && ((name.getText().toString()).equals("john"))){
                         result.setTextColor(Color.GREEN);
                         result.setText("Верно");
                         i = new Intent(MainActivity.this, MainActivity2.class);
