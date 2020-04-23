@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Programm</string>
+    <string name="title">Программа сотирует матрицу размера m</string>
+    <string name="txt1">Введите m - чётное число от 2 до 8 включительно</string>
+    <string name="input1">Введите m</string>
+    <string name="validate">Подтверждение ввода</string>
+    <string name="input2">Введите 1, чтобы вводить элементы самому, 2 - для случайного заполнения</string>
+    <string name="hint">Введите 1 или 2</string>
+    <string name="title2">Вводите элементы матрицы по одному, элементы принадлнжат отрезку [1, 100]
+    Нажатие кпопки снизу - запись</string>
+    <string name="hint2">Введите следующий элемент</string>
+</resources>
